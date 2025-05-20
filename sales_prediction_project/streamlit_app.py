@@ -1,9 +1,14 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import os
+
+# Dynamically determine path to the model file
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(BASE_DIR, 'sales_model.pkl')
 
 # Load model
-model = joblib.load('sales_model.pkl')
+model = joblib.load(model_path)
 
 st.title("📈 Sales Prediction App")
 st.write("Enter values to predict sales based on advertising spend.")
